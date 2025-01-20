@@ -1,0 +1,199 @@
+{% extends 'heart_app/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="hero text-center py-5 bg-light shadow-sm rounded">
+        {% load static %}
+        <div class="row">
+            <div class="col-md-4 offset-md-4"> 
+              <img src="{% static 'images/h7.jpg' %}" alt="HeartPredict Logo" class="img-fluid mb-3"> 
+            </div>
+          </div>
+        <h1 class="display-7 text-primary font-weight-bold">Welcome to HeartPredict</h1>
+        <p class="lead text-secondary">
+            Your trusted companion for predicting heart disease risk and exploring health insights. Take control of your heart health today.
+        </p>
+        <a href="{% url 'predict' %}" class="btn btn-primary btn-lg mt-3">Get Started</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section mt-5">
+        <div class="row text-center">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-heartbeat fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">Heart Disease Prediction</h5>
+                        <p class="card-text">
+                            Use advanced AI models to analyze your health data and assess your risk of heart disease with accuracy.
+                        </p>
+                        <a href="{% url 'predict' %}" class="btn btn-danger">Predict Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-pie fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Data Visualization</h5>
+                        <p class="card-text">
+                            Explore insightful visualizations to understand the factors affecting heart health.
+                        </p>
+                        <a href="{% url 'visualizations' %}" class="btn btn-info">Explore Data</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-envelope fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Get in Touch</h5>
+                        <p class="card-text">
+                            Have questions or feedback? Contact us for assistance and to learn more about our services.
+                        </p>
+                        <a href="{% url 'contact' %}" class="btn btn-warning">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section mt-5 py-5 bg-light rounded shadow-sm">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="text-primary">Why HeartPredict?</h2>
+                <p class="text-secondary">
+                    HeartPredict is built to empower individuals by providing accurate and easy-to-use tools to manage their heart health. We use cutting-edge technology and an intuitive interface to ensure you stay informed and in control.
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check-circle text-success"></i> AI-Powered Predictions</li>
+                    <li><i class="fas fa-check-circle text-success"></i> Interactive Visualizations</li>
+                    <li><i class="fas fa-check-circle text-success"></i> Privacy and Data Security</li>
+                    <li><i class="fas fa-check-circle text-success"></i> Community Support</li>
+                </ul>
+            </div>
+            {% load static %}
+            <div class="col-md-6 py-6">
+                <img src="{% static 'images/heart.jpeg' %}" alt="Heart Health" class="img-fluid rounded float-end">
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section mt-5">
+        <h2 class="text-center text-primary">What Our Users Say</h2>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">
+                            "HeartPredict has been a game-changer for me. The prediction tool is easy to use and gave me insights to improve my health."
+                        </p>
+                        <h6 class="text-secondary">- Jane Doe</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">
+                            "I love the visualizations! They helped me understand the factors contributing to heart disease."
+                        </p>
+                        <h6 class="text-secondary">- John Smith</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">
+                            "Fantastic platform! The predictions are accurate, and the interface is user-friendly. Highly recommend it."
+                        </p>
+                        <h6 class="text-secondary">- Sarah Lee</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call-to-Action Section -->
+    <div class="cta-section mt-5 text-center py-4 bg-primary text-white rounded shadow-sm">
+        <h2>Take the First Step Toward a Healthier Heart</h2>
+        <p>Join thousands of users taking control of their heart health with HeartPredict.</p>
+        <a href="{% url 'predict' %}" class="btn btn-light btn-lg">Start Your Journey</a>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section mt-5">
+        <h2 class="text-center text-primary">Frequently Asked Questions</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is HeartPredict?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                HeartPredict is a platform that uses advanced AI models to predict heart disease risks and provides health insights to help you take control of your heart health.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How accurate are the predictions?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The predictions are based on machine learning models that are trained on large datasets. While no prediction can be 100% accurate, we strive for high accuracy.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Is my data secure on HeartPredict?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, your data is encrypted and stored securely. We prioritize privacy and ensure that your information is protected.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/faq.jpeg' %}" class="img-fluid" alt="FAQ image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Section -->
+    <div class="partners-section mt-5">
+        <h2 class="text-center text-primary">Our Trusted Partners</h2>
+        <div class="row mt-4">
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/p1.jpeg' %}" class="img-fluid mb-3" alt="Partner 1">
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/p2.jpeg' %}" class="img-fluid mb-3" alt="Partner 2">
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'images/p3.jpeg' %}" class="img-fluid mb-3" alt="Partner 3">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

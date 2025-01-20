@@ -1,0 +1,88 @@
+{% extends 'heart_app/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Visualizations</h1>
+    <hr>
+    <div class="row">
+        <!-- Target Distribution Chart -->
+        <div class="col-md-4">
+            <h3>Heart Disease Distribution</h3>
+            <canvas id="targetChart"></canvas>
+        </div>
+
+        <!-- Age Distribution Chart -->
+        <div class="col-md-6">
+            <h3>Age Distribution</h3>
+            <canvas id="ageChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Data passed from the backend
+    const targetLabels = {{ data.target_labels|safe }};
+    const targetValues = {{ data.target_values|safe }};
+    const ageDistribution = {{ data.age_distribution|safe }};
+
+    // Target Distribution Chart
+    const ctx1 = document.getElementById('targetChart').getContext('2d');
+    new Chart(ctx1, {
+        type: 'pie',
+        data: {
+            labels: targetLabels,
+            datasets: [{
+                data: targetValues,
+                backgroundColor: ['#36A2EB', '#FF6384'],
+                hoverBackgroundColor: ['#36A2EB', '#FF6384'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Heart Disease Distribution'
+                }
+            }
+        }
+    });
+
+    // Age Distribution Chart
+    const ctx2 = document.getElementById('ageChart').getContext('2d');
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: Array.from({ length: ageDistribution.length }, (_, i) => i + 1),
+            datasets: [{
+                label: 'Age',
+                data: ageDistribution,
+                backgroundColor: '#FF9F40',
+                borderColor: '#FF9F40',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Individuals'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Age'
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

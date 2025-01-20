@@ -1,0 +1,108 @@
+{% extends 'heart_app/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+      <h1 class="display-7 text-primary font-weight-bold">About HeartPredict</h1>
+      <p class="lead text-muted mb-4">HeartPredict leverages Artificial Intelligence to offer personalized insights into heart disease risks, helping individuals make informed health decisions.</p>
+
+      <!-- Icon Section -->
+      <div class="mb-4">
+        <i class="fas fa-heartbeat fa-5x text-danger"></i>
+      </div>
+
+      <!-- Additional Text for Clarity -->
+      <p class="text-dark">Our mission is to empower people to understand and prevent heart disease with accurate, predictive data. By combining cutting-edge AI models with medical expertise, HeartPredict aims to revolutionize how individuals and healthcare professionals address heart health.</p>
+
+      <!-- CTA Button -->
+      <a href="https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)" class="btn btn-primary btn-lg mt-4">Learn More</a>
+    </div>
+  </div>
+
+  <!-- New Section: Our Team -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+      <h2 class="text-primary font-weight-bold">Our Team</h2>
+      <p class="text-muted mb-4">Meet the dedicated professionals behind HeartPredict.</p>
+      
+      <!-- Team Member Profiles -->
+      <div class="row">
+        <div class="col-md-4">
+          {% load static %}
+          <div class="card mb-4">
+            <img src="{% static 'images/d1.jpeg' %}" class="card-img-top" alt="Team Member 1">
+            <div class="card-body">
+              <h5 class="card-title">Dr. John Doe</h5>
+              <p class="card-text">Chief Medical Officer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          {% load static %}
+          <div class="card mb-4">
+            <img src="{% static 'images/d2.jpeg' %}" class="card-img-top" alt="Team Member 2">
+            <div class="card-body">
+              <h5 class="card-title">Jane Smith</h5>
+              <p class="card-text">Lead Data Scientist</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          {% load static %}
+          <div class="card mb-4">
+            <img src="{% static 'images/d4.jpeg' %}" class="card-img-top" alt="Team Member 3">
+            <div class="card-body">
+              <h5 class="card-title">Emily</h5>
+              <p class="card-text">AI Researcher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Section: Our Technology -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+      <h2 class="text-primary font-weight-bold">Our Technology</h2>
+      <p class="text-muted mb-4">Discover the advanced technology that powers HeartPredict.</p>
+      
+      <p class="text-dark">HeartPredict utilizes sophisticated machine learning algorithms and vast datasets to provide accurate predictions and insights. Our AI models are continuously updated with the latest medical research to ensure precision and reliability.</p>
+    </div>
+  </div>
+
+  <!-- New Section: Testimonials -->
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+      <h2 class="text-primary font-weight-bold">Testimonials</h2>
+      <p class="text-muted mb-4">Hear from our users about their experience with HeartPredict.</p>
+      
+      <!-- Testimonials Carousel -->
+      <div id="testimonialsCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <p class="lead">"HeartPredict has been a game-changer for my health. The insights are incredibly accurate and have helped me make better lifestyle choices." - Alex Brown</p>
+          </div>
+          <div class="carousel-item">
+            <p class="lead">"As a healthcare professional, I find HeartPredict to be an invaluable tool in assessing my patients' heart health risks." - Dr. Sarah Lee</p>
+          </div>
+          <div class="carousel-item">
+            <p class="lead">"The AI predictions are spot on and have given me peace of mind about my heart health." - Michael Davis</p>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonialsCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialsCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'heart_app/base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+      <h1 class="display-7 text-primary font-weight-bold">Contact Us</h1>
+      <p class="lead text-muted mb-5">We'd love to hear from you! Whether you have a question or want to learn more about HeartPredict, feel free to reach out to us.</p>
+      
+      <!-- Contact Form -->
+      <form action="#" method="post" id="contactForm">
+        <div class="form-row mb-4">
+          <div class="col-12">
+            <input type="text" class="form-control form-control-lg" id="name" placeholder="Full Name" required>
+          </div>
+          <div class="col-12">
+            <input type="email" class="form-control form-control-lg" id="email" placeholder="Email Address" required>
+          </div>
+        </div>
+
+        <div class="form-row mb-4">
+          <div class="col-12">
+            <textarea class="form-control form-control-lg" id="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+      </form>
+
+      <!-- Success Message -->
+      <div id="successMessage" class="alert alert-success mt-4" style="display: none;">
+        <strong>Thank you!</strong> Your message has been sent successfully.
+      </div>
+
+      <!-- Additional Contact Details Section -->
+      <div class="mt-5">
+        <h4 class="text-primary">Our Location</h4>
+        <p class="text-dark mb-2"><i class="fas fa-map-marker-alt"></i> 123 HeartHealth Avenue, Suite 456, HealthyCity, HC 7890</p>
+
+        <!-- Google Map -->
+        <div class="embed-responsive embed-responsive-16by9 mb-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22099.3646830105!2d78.0890455185009!3d11.718995426857491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babfa3400000001%3A0xdd739a3d0c713e3d!2sPeriyar%20University!5e0!3m2!1sen!2sin!4v1736486534743!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <h4 class="text-primary">Contact Information</h4>
+        <p class="text-dark mb-2"><i class="fas fa-phone-alt"></i> +91 8637474067</p>
+        <p class="text-dark"><i class="fas fa-envelope"></i> support@heartpredict.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // Simple form validation and success message display
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Assuming form submission is successful
+    const successMessage = document.getElementById("successMessage");
+    successMessage.style.display = "block";
+
+    // Clear the form
+    document.getElementById("contactForm").reset();
+  });
+</script>
+{% endblock %}

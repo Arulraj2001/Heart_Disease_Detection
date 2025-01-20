@@ -1,0 +1,59 @@
+{% extends 'heart_app/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Upload New Dataset</h1>
+    <hr>
+
+    <!-- Display messages (success or error) -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Instructions Section -->
+    <div class="alert alert-info">
+        <h5>Instructions</h5>
+        <p>To upload a new dataset for analysis, please follow these steps:</p>
+        <ol>
+            <li>Click the "Choose File" button to select your CSV dataset.</li>
+            <li>Make sure the file is in <strong>CSV</strong> format and under <strong>10 MB</strong> in size.</li>
+            <li>Click "Upload" to submit your dataset.</li>
+        </ol>
+    </div>
+
+    <!-- Supported File Types Section -->
+    <div class="alert alert-warning">
+        <h5>Supported File Types</h5>
+        <p>Only <strong>CSV files</strong> are supported. Please ensure your file is formatted correctly with columns for features and target variables.</p>
+    </div>
+
+    <!-- Upload Form -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="dataset" class="form-label">Upload CSV Dataset:</label>
+            <input type="file" name="dataset" class="form-control" id="dataset" required>
+            <small class="form-text text-muted">Maximum file size: 10MB</small>
+        </div>
+
+        <!-- Placeholder for Progress Bar (this can be dynamically updated) -->
+        <div id="progress-container" class="mb-3" style="display:none;">
+            <label for="progress">Upload Progress:</label>
+            <div class="progress">
+                <div id="upload-progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+    <hr>
+    <!-- Help Section -->
+    <div class="mt-5">
+        <h5>Need Help?</h5>
+        <p>If you encounter any issues while uploading the dataset, please refer to the <a href="#">Help Center</a> or contact support at <a href="mailto:support@heartpredict.com">support@heartpredict.com</a>.</p>
+    </div>
+</div>
+{% endblock %}
